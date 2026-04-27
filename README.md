@@ -2,6 +2,8 @@
 
 > End-to-end Bronze → Silver → Gold pipeline on Azure Databricks using NYC TLC trip data
 
+> 🚧 **Status:** Actively in development — Bronze layer complete (April 2026). Silver and Gold layers in progress.
+
 ---
 
 ## Author
@@ -64,3 +66,8 @@ The pipeline follows the **medallion architecture**: raw NYC TLC trip files land
 - **Unity Catalog three-level namespace** — `catalog.schema.table` with managed tables and grants
 - **Data quality** — explicit expectations, null/duplicate handling, and quarantine of bad records
 - **Separation of concerns** — reusable library code under `src/`, thin notebooks for orchestration, unit tests under `tests/`
+
+## Recent Updates:
+- **April 2026:** Initialised project, completed Bronze layer ingestion with metadata audit columns, established Unity Catalog three-level namespace.
+## Contacts:
+-(https://linkedin.com/in/kumari-shishubala-b01b8b253) and email (kshishubala051@gmail.com).    
