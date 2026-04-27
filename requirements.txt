@@ -1,0 +1,8 @@
+# Runtime — pinned to versions compatible with Databricks Runtime 15.x LTS
+pyspark==3.5.0
+delta-spark==3.2.0
+
+# Dev / quality
+pytest==8.2.0
+ruff==0.4.4
+black==24.4.2
