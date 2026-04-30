@@ -2,7 +2,7 @@
 
 > End-to-end Bronze → Silver → Gold pipeline on Azure Databricks using NYC TLC trip data
 
-> 🚧 **Status:** Actively in development — Bronze layer complete (April 2026). Silver and Gold layers in progress.
+   > 🚧 **Status:** Actively in development — Bronze and Silver layers complete (April 2026). Gold layer in progress.
 
 ---
 
@@ -50,8 +50,9 @@ The pipeline follows the **medallion architecture**: raw NYC TLC trip files land
 ## Project Status
 
 - [x] Project skeleton & scaffolding
-- [ ] **Bronze layer** — ingestion of NYC TLC raw files *(in progress)*
-- [ ] Silver layer — cleansed & conformed trip facts
+- [X] - Bronze | ✅ Complete | Raw ingestion of NYC TLC trip data with audit metadata | April 2026
+- [X] Silver | ✅ Complete | Cleansing, deduplication via row_number window, schema enforcement, 5 data-quality rules, quarantine pattern | April 2026
+
 - [ ] Gold layer — analytics aggregates
 - [ ] CI: lint, format, and pytest on PR
 - [ ] Databricks Asset Bundle deployment
@@ -69,5 +70,6 @@ The pipeline follows the **medallion architecture**: raw NYC TLC trip files land
 
 ## Recent Updates:
 - **April 2026:** Initialised project, completed Bronze layer ingestion with metadata audit columns, established Unity Catalog three-level namespace.
+- **April 2026:** Completed Silver layer with quarantine pattern. Implemented deterministic deduplication using Window.partitionBy().orderBy() with row_number(). Applied 5 business data-quality rules. Of 21,932 Bronze rows, 21,926 passed all quality checks; 6 rows quarantined (5 negative fares likely representing refunds, 1 zero-duration likely representing a cancellation fee).
 ## Contacts:
 -(https://linkedin.com/in/kumari-shishubala-b01b8b253) and email (kshishubala051@gmail.com).    
