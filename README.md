@@ -1,5 +1,7 @@
 # NYC Taxi Medallion Pipeline
 
+![CI](https://github.com/Shishubala-01/nyc-taxi-medallion-pipeline/actions/workflows/ci.yml/badge.svg)
+
 > End-to-end Bronze → Silver → Gold pipeline on Azure Databricks using NYC TLC trip data
 
    > ✅ **Status:** Complete — full medallion pipeline (Bronze, Silver, Gold) delivered April 2026. Tests and CI/CD planned next.
