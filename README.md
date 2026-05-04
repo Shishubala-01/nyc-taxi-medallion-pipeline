@@ -4,7 +4,7 @@
 
 > End-to-end Bronze → Silver → Gold pipeline on Azure Databricks using NYC TLC trip data
 
-   > ✅ **Status:** Complete — full medallion pipeline (Bronze, Silver, Gold) delivered April 2026. Tests and CI/CD planned next.
+   > ✅ **Status:** Complete — full medallion pipeline (Bronze, Silver, Gold) with pytest unit tests and GitHub Actions CI/CD. Delivered April 2026.
 
 
 ---
@@ -60,7 +60,8 @@ The pipeline follows the **medallion architecture**: raw NYC TLC trip files land
 - [X] Silver | ✅ Complete | Cleansing, deduplication via row_number window, schema enforcement, 5 data-quality rules, quarantine pattern | April 2026
 
 - [X] Gold | ✅ Complete | Star schema with dim_zones, fact_trips_daily, fact_trips_by_zone_day. Partitioned by trip_date for query performance | April 2026
-- [ ] CI: lint, format, and pytest on PR
+- [X] Tests | ✅ Complete | 7 pytest unit tests for transformation functions. Pure functions extracted to src/nyc_taxi/silver.py for testability. | April 2026
+- [X] CI/CD | ✅ Complete | GitHub Actions workflow runs tests + ruff lint on every push. Python 3.11 + Java 17 (Temurin) + pip cache. | April 2026
 - [ ] Databricks Asset Bundle deployment
 
 ---
@@ -78,6 +79,7 @@ The pipeline follows the **medallion architecture**: raw NYC TLC trip files land
 - **April 2026:** Initialised project, completed Bronze layer ingestion with metadata audit columns, established Unity Catalog three-level namespace.
 - **April 2026:** Completed Silver layer with quarantine pattern. Implemented deterministic deduplication using Window.partitionBy().orderBy() with row_number(). Applied 5 business data-quality rules. Of 21,932 Bronze rows, 21,926 passed all quality checks; 6 rows quarantined (5 negative fares likely representing refunds, 1 zero-duration likely representing a cancellation fee).
 - **April 2026:** Completed Gold layer with star schema. Built 1 dimension (dim_zones, 206 zones) and 2 fact tables (fact_trips_daily — 60 daily rows; fact_trips_by_zone_day — 3,290 zone-day rows). Surfaced first business insight: zip 11422 (Rosedale, Queens — near JFK Airport) generates 7% of total revenue.
+- **April 2026:** Added pytest unit tests (7 tests, runs locally in 4.5 seconds) and GitHub Actions CI/CD workflow. Refactored Silver transformations into pure, testable functions in src/nyc_taxi/silver.py. CI badge now showing green.
 
 ## How to Run
 - Prerequisites: Databricks workspace with Unity Catalog enabled, serverless or all-purpose compute
